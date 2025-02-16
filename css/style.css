@@ -1,0 +1,55 @@
+@import "normalize.css";
+
+@font-face {
+  font-family: "Rubik";
+  src:
+    url("../fonts/RubikRegular.woff2") format("woff2"),
+    url("../fonts/RubikRegular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src:
+    url("../fonts/RubikBold.woff2") format("woff2"),
+    url("../fonts/RubikBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --system-ui:
+    system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --white: hsl(0 100% 100%);
+  --blue: hsl(216 96% 61%);
+  --light-blue: hsl(216 100% 87%);
+  --yellow: hsl(44 85% 69%);
+  --black: hsl(0 0% 0%);
+}
+
+body {
+  font-family: "Rubik", var(--system-ui);
+  font-size: 16px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  max-width: 90vw;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: var(--white);
+}
+
+.sidebar {
+  background-color: var(--blue);
+}
+
+.main {
+  background-color: var(--light-blue);
+}
