@@ -36,20 +36,109 @@ body {
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 5fr;
-  max-width: 90vw;
+  grid-template-columns: 2fr 5fr 3fr;
+  grid-template-rows: 1fr 4fr;
   min-height: 100vh;
   margin: 0 auto;
+  grid-template-areas:
+    "sidebar header header"
+    "sidebar main   main";
 }
+
+/* HEADER STYLING */
 
 .header {
   background-color: var(--white);
+  grid-area: header;
+  display: grid;
+
+  & .header-first-row,
+  .header-second-row {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    gap: 2em;
+  }
+
+  & .avatar {
+    background-color: var(--yellow);
+    padding: 0.5em;
+    border-radius: 50%;
+  }
+}
+
+.header-first-row {
+  & .search-bar {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+
+    & > label {
+      margin-left: auto;
+      padding: 0 1rem;
+    }
+
+    & > input {
+      justify-self: right;
+      width: 100%;
+      background-color: var(--light-blue);
+      border: none;
+      border-radius: 1rem;
+      padding: 0.3em 1em;
+      outline: none;
+    }
+  }
+
+  & .user-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    align-items: center;
+    justify-items: end;
+    padding: 0 1em;
+
+    & > p {
+      font-weight: bold;
+      padding: 1em;
+    }
+  }
+}
+
+.header-second-row {
+  & .user-greeting {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    gap: 1em;
+
+    & > div:nth-child(1) {
+      margin-left: auto;
+    }
+  }
+
+  & .user-projects-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+    align-items: center;
+    padding-right: 2em;
+
+    & > button {
+      background-color: var(--blue);
+      padding: 0.5em 1em;
+      border: none;
+      border-radius: 1em;
+      color: var(--white);
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
 }
 
 .sidebar {
   background-color: var(--blue);
+  grid-area: sidebar;
 }
 
 .main {
   background-color: var(--light-blue);
+  grid-area: main;
 }
