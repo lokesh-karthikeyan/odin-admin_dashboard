@@ -283,6 +283,10 @@ body {
     }
 
     & .trending {
+      --rose: hsl(305 49% 73%);
+      --light-gray: hsl(42 4% 58%);
+      --teal: hsl(178 48% 58%);
+
       & > h4 {
         padding-bottom: 1em;
       }
@@ -291,6 +295,24 @@ body {
         padding: 1em;
         border-radius: 0.5em;
         box-shadow: 5px 5px 10px 2px var(--gray);
+
+        & > .profiles:nth-child(1) {
+          & > .avatar {
+            background-color: var(--teal);
+          }
+        }
+
+        & > .profiles:nth-child(3) {
+          & > .avatar {
+            background-color: var(--rose);
+          }
+        }
+
+        & > .profiles:nth-child(4) {
+          & > .avatar {
+            background-color: var(--light-gray);
+          }
+        }
 
         & > .profiles {
           display: grid;
