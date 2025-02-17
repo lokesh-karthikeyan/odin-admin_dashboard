@@ -38,8 +38,9 @@ body {
 .wrapper {
   display: grid;
   grid-template-columns: 2fr 5fr 3fr;
-  grid-template-rows: 1fr 4fr;
+  grid-template-rows: auto;
   min-height: 100vh;
+  overflow: auto;
   margin: 0 auto;
   grid-template-areas:
     "sidebar header header"
@@ -68,6 +69,7 @@ body {
   background-color: var(--white);
   grid-area: header;
   display: grid;
+  padding: 0.5em 0;
 
   & .header-first-row,
   .header-second-row {
@@ -83,6 +85,7 @@ body {
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 0.5fr;
     align-items: center;
+    align-content: center;
 
     & > label {
       margin-left: auto;
@@ -120,9 +123,14 @@ body {
     grid-template-columns: 1fr 4fr;
     align-items: center;
     gap: 1em;
+    padding: 1em 0;
 
     & > div:nth-child(1) {
       margin-left: auto;
+    }
+
+    & > div:nth-child(2) > h2 {
+      font-size: 0.8em;
     }
   }
 
@@ -145,9 +153,48 @@ body {
   }
 }
 
+/* SIDEBAR STYLING */
+
 .sidebar {
   background-color: var(--blue);
   grid-area: sidebar;
+  color: var(--white);
+  font-size: 0.8em;
+
+  & .sidebar-contents {
+    display: grid;
+    gap: 3em;
+    padding: 2em;
+
+    & .sidebar-header {
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+      gap: 1em;
+
+      & > img {
+        margin-top: 3px;
+        filter: invert(1);
+      }
+    }
+  }
+
+  & .options {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    gap: 1em;
+    justify-items: center;
+
+    & > a {
+      justify-self: start;
+      padding-bottom: 1.5em;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    & > img {
+      filter: invert(1);
+    }
+  }
 }
 
 /* MAIN CONTENT STYLING */
@@ -174,6 +221,7 @@ body {
         border-radius: 0.5em;
         display: grid;
         grid-template-rows: 2fr 0.5fr;
+        box-shadow: 5px 5px 10px 2px var(--gray);
 
         & p {
           color: var(--gray);
@@ -202,7 +250,6 @@ body {
     display: grid;
     gap: 1em;
     padding: 1.5em;
-    grid-template-rows: repeat(auto-fit, minmax(500px, 1fr));
 
     & .announcements {
       & > h4 {
@@ -213,6 +260,7 @@ body {
         padding: 1em;
         background-color: var(--white);
         border-bottom: solid 0.1em var(--gray);
+        box-shadow: 5px 5px 10px 2px var(--gray);
       }
 
       & .announcements-list > div > h6 {
@@ -242,6 +290,7 @@ body {
         background-color: var(--white);
         padding: 1em;
         border-radius: 0.5em;
+        box-shadow: 5px 5px 10px 2px var(--gray);
 
         & > .profiles {
           display: grid;
